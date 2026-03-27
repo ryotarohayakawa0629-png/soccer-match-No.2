@@ -8,6 +8,9 @@
     --accent: #a8dadc;
     --pitch-green: #1a432b;
     --pitch-line: rgba(255, 255, 255, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --highlight: #a8dadc;
 }
 
 * {
@@ -32,6 +35,57 @@ h3,
 .vs {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+    text-transform: uppercase;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 40px;
+    background: rgba(15, 17, 21, 0.7);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sticky-nav.visible {
+    transform: translateY(0);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
 }
 
 /* Hero Section */
@@ -64,6 +118,7 @@ h3,
     font-size: 1.8rem;
     color: var(--primary);
     letter-spacing: 2px;
+    text-indent: 2px; /* ズレ補正 */
     margin-bottom: 10px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
 }
@@ -72,6 +127,7 @@ h3,
     font-size: 6rem;
     font-weight: 900;
     letter-spacing: 12px;
+    text-indent: 12px; /* letter-spacingによる右へのズレを補正 */
     margin-bottom: 50px;
     color: #fff;
     text-shadow: 
@@ -83,26 +139,70 @@ h3,
     -webkit-text-fill-color: transparent;
 }
 
+/* Countdown Timer */
+.countdown-container {
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.timer-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(168, 218, 220, 0.5);
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
 .teams {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 40px;
-    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .team {
     padding: 30px 40px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 128, 128, 0.1);
     border-radius: 15px;
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 420px;
+    justify-content: center;
+    flex: 1;
+    max-width: 500px;
     min-height: 400px;
 }
 
@@ -128,14 +228,14 @@ h3,
 
 /* Manchester Science のロゴサイズ */
 .logo-mst {
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
 }
 
-/* Mnchester Japanese のロゴサイズ */
+/* Manchester Japanese のロゴサイズ */
 .logo-isc {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
 }
 
 .logo-placeholder {
@@ -155,8 +255,9 @@ h3,
 }
 
 .team h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     margin-bottom: 5px;
+    white-space: nowrap;
 }
 
 .team .manager {
@@ -170,6 +271,7 @@ h3,
     color: var(--primary);
     font-style: italic;
     text-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
+    align-self: center;
 }
 
 /* Intro Section */
@@ -212,6 +314,7 @@ h3,
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 15px;
+    text-indent: 15px; /* ズレ補正 */
     margin-bottom: 40px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -277,6 +380,7 @@ section {
     left: 50%;
     transform: translateX(-50%);
     letter-spacing: 3px;
+    text-indent: 3px; /* ズレ補正 */
 }
 
 .section-title::after {
@@ -299,18 +403,20 @@ section {
 }
 
 .info-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
     padding: 40px 30px;
     border-radius: 20px;
     text-align: center;
-    transition: transform 0.4s ease, border-color 0.4s;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s, background 0.4s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .info-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .info-card h3 {
@@ -353,13 +459,15 @@ section {
 
 /* Prediction Poll */
 .prediction-container {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 40px;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .prediction-desc {
@@ -518,12 +626,19 @@ section {
 
 .team-lineup {
     background: linear-gradient(145deg, #12141a 0%, #060709 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 50px 40px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255,255,255,0.02);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.team-lineup:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .team-lineup::before {
@@ -605,22 +720,7 @@ section {
     letter-spacing: 2px;
 }
 
-@keyframes pulse {
-    0% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
 
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-    }
-
-    100% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-}
 
 /* Formations */
 .formations-container {
@@ -652,7 +752,8 @@ section {
     background-image:
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 49.5%, var(--pitch-line) 49.5%, var(--pitch-line) 50.5%, rgba(0, 0, 0, 0) 50.5%),
         radial-gradient(circle at center, transparent 15%, var(--pitch-line) 15%, var(--pitch-line) 15.5%, transparent 15.5%);
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
 }
 
 .pitch-lines {
@@ -761,33 +862,9 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Scroll Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
+/* Scroll Animations removed as per user request */
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
-.fade-in-up {
-    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* スマホ対応 (Mobile Responsive) */
 @media (max-width: 768px) {
@@ -824,6 +901,7 @@ footer {
     .title {
         font-size: 3rem;
         letter-spacing: 2px;
+        text-indent: 2px; /* ズレ補正 */
         margin-bottom: 30px;
     }
 

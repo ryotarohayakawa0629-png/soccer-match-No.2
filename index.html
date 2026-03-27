@@ -3,16 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE MATCH: Manchester Science vs Mnchester Japanese</title>
+    <title>THE MATCH: Manchester Science vs Manchester Japanese</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="sticky-nav" id="sticky-nav">
+        <div class="nav-logo">THE MATCH</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#info">Info</a>
+            <a href="#poll">Prediction</a>
+            <a href="#lineup">Lineup</a>
+            <a href="#formation">Formation</a>
+        </div>
+    </nav>
+
     <div class="hero">
         <div class="overlay"></div>
-        <div class="hero-content fade-in-up">
+        <div class="hero-content">
             <h3 class="date">4月8日 (Kickoff 13:20)</h3>
             <h1 class="title">THE MATCH</h1>
+            
+            <div class="countdown-container">
+                <p class="countdown-label">KICKOFF UNTIL</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="timer-num" id="days">00</span>
+                        <span class="timer-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="timer-num" id="hours">00</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="timer-num" id="minutes">00</span>
+                        <span class="timer-label">Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="timer-num" id="seconds">00</span>
+                        <span class="timer-label">Sec</span>
+                    </div>
+                </div>
+            </div>
             <div class="teams">
                 <div class="team">
                     <div class="logo-wrapper">
@@ -26,18 +59,18 @@
                     <div class="logo-wrapper">
                         <img src="ISC_transparent.png" class="logo logo-isc">
                     </div>
-                    <h2>Mnchester Japanese</h2>
+                    <h2>Manchester Japanese</h2>
                     <p class="manager">監督: 矢都木 悠真</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <section class="intro-section fade-in">
+    <section class="intro-section">
         <div class="intro-container">
             <h2 class="intro-title">THE PRIDE</h2>
             <div class="intro-content">
-                <p>この三田国際学園には、決して譲ってはならないものが二つある。</p>
+                <p>この三田国際科学学園には、決して譲ってはならないものが二つある。</p>
                 <p class="highlight-text">『学食の列』と『ナンバーワン・コースの地位』だ。</p>
                 <p>今宵、新高校1年 <strong style="color: var(--secondary);">MST</strong> と <strong style="color: var(--primary);">ISC</strong> の<br class="sp-br">代表同士による死闘が、静かに幕を開ける。</p>
                 <p class="climax-text">最強の称号を手に入れるのは<br class="sp-br">誰なのか！</p>
@@ -45,7 +78,7 @@
         </div>
     </section>
 
-    <section class="info-section fade-in">
+    <section class="info-section" id="info">
         <h2 class="section-title">match info</h2>
         <div class="info-grid">
             <div class="info-card">
@@ -67,7 +100,7 @@
         </div>
     </section>
 
-    <section class="prediction-section fade-in">
+    <section class="prediction-section" id="poll">
         <h2 class="section-title">win prediction</h2>
         <div class="prediction-container">
             <p class="prediction-desc">どちらのチームが勝つか予想しよう！</p>
@@ -80,7 +113,7 @@
                 <div class="poll-vs">VS</div>
                 <button class="poll-btn btn-isc" onclick="castVote('isc')">
                     <img src="ISC_transparent.png" class="poll-logo">
-                    <span>Mnchester Japanese</span>
+                    <span>Manchester Japanese</span>
                 </button>
             </div>
             
@@ -93,7 +126,7 @@
                         </div>
                         <div class="label-right">
                             <span class="percent-label" id="isc-percent">0%</span>
-                            <span class="team-label isc-label">Mnchester Japanese</span>
+                            <span class="team-label isc-label">Manchester Japanese</span>
                         </div>
                     </div>
                     <div class="bar-with-logos">
@@ -110,7 +143,7 @@
         </div>
     </section>
 
-    <section class="lineup-section fade-in">
+    <section class="lineup-section" id="lineup">
         <h2 class="section-title">starting lineups</h2>
         <div class="lineup-container">
             <div class="team-lineup">
@@ -131,7 +164,7 @@
                 </ul>
             </div>
             <div class="team-lineup">
-                <h3 class="team-name">Mnchester Japanese</h3>
+                <h3 class="team-name">Manchester Japanese</h3>
                 <h4 class="lineup-label">Starting Lineup</h4>
                 <ul class="player-list">
                     <li><span class="number">1</span> 渡邊 輝</li>
@@ -156,7 +189,7 @@
         </div>
     </section>
 
-    <section class="formation-section fade-in">
+    <section class="formation-section" id="formation">
         <h2 class="section-title">formations</h2>
         <div class="formations-container">
             <div class="team-formation">
@@ -183,16 +216,16 @@
                     </div>
                     <!-- MF -->
                     <div class="player player-science" style="left: 12%; top: 55%;">
-                        <span class="num">24</span>
-                        <span class="name">渡辺</span>
+                        <span class="num">13</span>
+                        <span class="name">早川</span>
                     </div>
                     <div class="player player-science" style="left: 37%; top: 55%;">
                         <span class="num">6</span>
                         <span class="name">竹下</span>
                     </div>
                     <div class="player player-science" style="left: 63%; top: 55%;">
-                        <span class="num">13</span>
-                        <span class="name">早川</span>
+                        <span class="num">24</span>
+                        <span class="name">渡辺</span>
                     </div>
                     <div class="player player-science" style="left: 88%; top: 55%;">
                         <span class="num">3</span>
@@ -215,7 +248,7 @@
                 </div>
             </div>
             <div class="team-formation">
-                <h3>Mnchester Japanese</h3>
+                <h3>Manchester Japanese</h3>
                 <div class="pitch">
                     <div class="pitch-lines"></div>
                     <!-- GK -->
